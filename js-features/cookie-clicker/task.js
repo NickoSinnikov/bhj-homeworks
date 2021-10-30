@@ -1,6 +1,6 @@
 const cookie = document.getElementById('cookie');
 const clicker__counter = document.getElementById('clicker__counter');
-let lastClick = 0;
+let lastClick = (new Date()).getTime();
 
 function clickerCookie() {
 
@@ -12,7 +12,8 @@ function clickerCookie() {
     }
 
     let timeNowLastClick = (new Date()).getTime();
-    let timeForClick = timeNowLastClick - lastClick;
+    const timeForClick = document.getElementById('timer__sec');
+    timeForClick.textContent = (((timeNowLastClick - lastClick) / 1000).toFixed(2));
     lastClick = timeNowLastClick;
     console.log(lastClick);
     console.log(timeForClick);
