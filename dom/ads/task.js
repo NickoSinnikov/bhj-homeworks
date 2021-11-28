@@ -1,19 +1,22 @@
 const rotator = Array.from(document.querySelectorAll(".rotator__case"));
+let rotatorCount = 0;
 
-const changeRot = function(){for (let i=0; i<rotator.length;i++){
-    if (rotator[i].classList.contains('rotator__case_active')){
-            rotator[i].classList.remove('rotator__case_active');
-    if (i===rotator.length-1){
-        rotator[0].classList.add('rotator__case_active')
+
+
+const changeRot = function(){
+    
+    if (rotator[rotatorCount].classList.contains('rotator__case_active')){
+            rotator[rotatorCount].classList.remove('rotator__case_active');
+    if (rotatorCount===rotator.length-1){
+        rotatorCount = 0;
+        
         } else{
-        rotator[i+1].classList.add('rotator__case_active');
+        rotatorCount +=1;
         }
-    }
+        rotator[rotatorCount].classList.add('rotator__case_active')
+    
+     timer = setTimeout(changeRot,1000);
+     
 }}
 
-
-const loadRot = function(){
-    setTimeout=((changeRot),1000)   
-}
-
-document.addEventListener('load',loadRot);
+const timer = setTimeout(changeRot,1000);
