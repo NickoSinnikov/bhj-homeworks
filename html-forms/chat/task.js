@@ -30,7 +30,7 @@ chatInput.addEventListener('keydown',function(e){
             </div>
         </div>`
     }
-    setTimeout(messageBot,1000)ж
+    setTimeout(messageBot,1000);
     }
 })
 

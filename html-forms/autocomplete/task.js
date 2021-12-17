@@ -68,6 +68,15 @@ class Autocomplete {
   }
 
   getMatches( text ) {
+    let selectValues = new Array();
+    const selectList = Array.from(document.querySelector(".autocomlete__input").getElementsByTagName("option"));
+
+    for (let i = 0; i< selectList.length; i++){
+      if (selectList[i].text.includes(text)){
+        selectValues.push({text: selectList[i].text, 
+                          value: selectList[i].value});
+      };
+    };
     /*
       TODO: этот метод нужно дописать
       text - фраза, которую вводят в поле поиска
@@ -81,12 +90,7 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
-      }
-    ];
+    return selectValues;
   }
 }
 
