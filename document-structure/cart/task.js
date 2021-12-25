@@ -2,7 +2,7 @@ const cartProducts = document.querySelector(".cart__products");
 const productPlus = Array.from(document.querySelectorAll('.product__quantity-control_inc'));
 const productMinus = Array.from(document.querySelectorAll('.product__quantity-control_dec'));
 const productAdd = Array.from(document.querySelectorAll('.product__add'));
-console.log(cartProducts)
+
 // Увеличение кол-ва товара
 for (let i = 0; i < productPlus.length; i++){
     productPlus[i].onclick = function(){
@@ -33,14 +33,16 @@ for (let i = 0; i < productAdd.length; i++){
             <img class = "cart__product-image" src = ${product.querySelector('.product__image').getAttribute('src')}>
                <div class="cart__product-count">${product.querySelector('.product__quantity-value').textContent}</div></div>`)
         } else {
-        cartProduct.forEach(item =>
+        
+        console.log(cartProduct.find(element => element[data-id === "1"]));
+      
             {if (productId !== item.getAttribute('data-id'))
                 {  cartProducts.insertAdjacentHTML('beforeEnd', `<div class="cart__product" data-id=${product.getAttribute('data-id')}>
                 <img class = "cart__product-image" src = ${product.querySelector('.product__image').getAttribute('src')}>
                    <div class="cart__product-count">${product.querySelector('.product__quantity-value').textContent}</div></div>`)
                 }
             }
-        )
+        
     }}
 }
 
