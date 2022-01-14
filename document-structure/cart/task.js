@@ -29,9 +29,9 @@ for (let i = 0; i < productAdd.length; i++) {
         const productInBasket = Array.from(document.querySelectorAll('.cart__product'))
 
         //Доработал после отправки на проверку!
-        if (productInBasket.findIndex((item) => productId === item.getAttribute('data-id')) !== -1) {
-            let indexProduct = productInBasket.findIndex((item) => productId === item.getAttribute('data-id'));
-            console.log(indexProduct);
+        let indexProduct = productInBasket.findIndex((item) => productId === item.getAttribute('data-id'));
+
+        if (indexProduct !== -1) {
             const oldValue = Number(productInBasket[indexProduct].children[1].textContent);
             const newValue = Number(product.querySelector('.product__quantity-value').textContent);
             productInBasket[indexProduct].children[1].innerText = oldValue + newValue;
