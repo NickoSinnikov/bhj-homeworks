@@ -8,10 +8,11 @@ const addTooltip = function(event) {
 
     const toolTip = document.querySelector(".tooltip");
     const title = this.getAttribute('title');
+    positionLink = event.currentTarget.getBoundingClientRect();
     let positionX = positionLink.x;
     let positionY = positionLink.y;
 
-    positionLink = event.currentTarget.getBoundingClientRect();
+
 
     if (toolTip !== null) {
         if (currentElem === event.currentTarget) {
